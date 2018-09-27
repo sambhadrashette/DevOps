@@ -1,0 +1,12 @@
+---
+- name: This is my webserver playbook
+  hosts: all
+
+  tasks:
+    - name: Installing web server
+      yum: name=httpd state=present
+    - name: configuring the index page 
+      copy: dest=/var/www/html/index.html content="Hello all, I'm from playbook"
+    - name: Starting the http service 
+      service: name=httpd state=started
+...
