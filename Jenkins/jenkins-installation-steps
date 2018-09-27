@@ -1,0 +1,33 @@
+== Installing Jenkins on machine
+
+1. first update the local yum repo
+
+    > yum update 
+
+2. Install JDK 1.8 (OpenJDK)
+    yum install yum  install java-1.8.0-openjdk.x86_64
+
+3. Set Java home, JRE home dir
+export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk
+export JRE_HOME=/usr/lib/jvm/jre
+
+4. Configure Jenkins package repo using wget
+    wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+5. import jenkins certificate/key
+    rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+6. Install jenkins 
+    yum install jenkins
+
+7. start Jenkins service
+    systemctl start jenkins 
+
+   Jenkins config file :  /etc/sysconfig/jenkins
+	Update user in the jenkins file to the user who have full machine access(or to the root)
+  
+ if you change anything in jenkins then restart the jenkins service
+
+
+
+
